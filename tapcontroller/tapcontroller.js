@@ -58,7 +58,7 @@ module.exports = function(RED) {
             var tapNum   = get_tapNum_from_topic(msg.topic)
             var tapState = get_tapState_from_topic(msg.topic)
 
-            if ((tapNum >= 0 && tapNum < maxTaps) && (tapState.toUpperCase() == "OPEN" || tapState.toUpperCase() == "CLOSE") || tapState.toUpperCase() == "OFF")) {
+            if ((tapNum >= 0 && tapNum < maxTaps) && (tapState.toUpperCase() == "OPEN" || tapState.toUpperCase() == "CLOSE") || tapState.toUpperCase() == "OFF"))) {
               pwm = new Pca9685Driver(options, function(err) {
                   if (err) {
                       console.error("Communication with PCA9685 failed!");
