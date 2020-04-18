@@ -1,20 +1,20 @@
 {
-    "name"         : "node-red-contrib-mcp23017",
+    "name"         : "node-red-contrib-tapcontroller",
     "version"      : "0.0.1",
-    "description"  : "MCP23017 controller",
+    "description"  : "Tap controller",
     "dependencies" : {
-		"node-mcp23017":"0.0.4"
+		"i2c-bus"      : "5.1.0"
     },
     "license"     : "Apache-2.0",
-    "homepage"    : "https://github.com/afulki/node-red-contrib-mcp23017",
+    "homepage"    : "https://github.com/jakorten/node-red-contrib-tapcontroller",
     "repository"  : {
         "type":"git",
-        "url":"https://github.com/afulki/node-red-contrib-mcp23017"
+        "url":"https://github.com/jakorten/node-red-contrib-tapcontroller"
     },
-    "keywords": [ "node-red", "mcp23017", "raspberry pi", "output", "slice of pi/o" ],
+    "keywords": [ "node-red", "PCA9685", "raspberry pi", "output", "slice of pi/o" ],
     "node-red"     : {
         "nodes": {
-            "mcp23017": "mcp23017/mcp23017.js"
+            "tapcontroller": "tapcontroller/tapcontroller.js"
         }
     }
 }
