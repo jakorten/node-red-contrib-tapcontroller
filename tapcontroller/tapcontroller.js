@@ -58,7 +58,7 @@ module.exports = function(RED) {
             console.log("Message: " + jmsg)
 
             var tapNum   = get_tapNum_from_topic(msg.topic)
-            var tapState = get_tapState_from_topic(msg.topic)
+            var tapState = msg.payload
 
             console.log("Tap: " + tapNum + " - " + tapState)
 
@@ -162,15 +162,15 @@ module.exports = function(RED) {
             mcp.digitalWrite(pin, state == 'ON' ? mcp.LOW : mcp.HIGH)
         }
         */
-        function get_tapState_from_topic(topic) {
-            var parts = topic.split('/')
-            var index = parts.length - 1
-            return parseInt(parts[index])
-        }
-
         function get_tapNum_from_topic(topic) {
+
+            console.log(topic)
             var parts = topic.split('/')
-            var index = parts.length - 2
+
+            console.log("Length: " + parts.length)
+            var index = parts.length - 1
+
+            console.log("Last item: " + parts[index])
             return parseInt(parts[index])
         }
         /*
