@@ -109,7 +109,9 @@ module.exports = function(RED) {
                       });
 
                   }
-                  node.send(msg.topic + "/" + msg.payload)
+                  msg.payload = msg.topic + "/" + msg.payload;
+                  console.log(msg);
+                  node.send(msg);
 
               })
             } else {
