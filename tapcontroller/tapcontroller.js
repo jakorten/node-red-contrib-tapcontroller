@@ -92,6 +92,7 @@ module.exports = function(RED) {
                       });
                   }
                   if (tapState.toUpperCase() == "OFF") {
+
                       pwm.channelOff(tapNum * 2, function() {
                           if (err) {
                               console.error("Error turning off channel.");
@@ -106,8 +107,9 @@ module.exports = function(RED) {
                               console.log("Tap was set to: " + tapState.toUpperCase());
                           }
                       });
-                  }
 
+                  }
+                  node.send(msg.topic + "/" + msg.payload)
 
               })
             } else {
