@@ -58,6 +58,8 @@ module.exports = function(RED) {
             var tapNum   = get_tapNum_from_topic(msg.topic)
             var tapState = get_tapState_from_topic(msg.topic)
 
+            console.log("Tap: " + tapNum + " - " + tapState)
+
             if ((tapNum >= 0 && tapNum < maxTaps) && (tapState.toUpperCase() == "OPEN") || (tapState.toUpperCase() == "CLOSE") || (tapState.toUpperCase() == "OFF")) {
               pwm = new Pca9685Driver(options, function(err) {
                   if (err) {
