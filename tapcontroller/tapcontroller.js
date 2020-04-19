@@ -54,6 +54,7 @@ module.exports = function(RED) {
                 text: 'Busy`'
             })
             //if (msg.topic.toUpperCase().indexOf('ALL') > -1) {
+            console.log("Message: " + msg)
 
             var tapNum   = get_tapNum_from_topic(msg.topic)
             var tapState = get_tapState_from_topic(msg.topic)
