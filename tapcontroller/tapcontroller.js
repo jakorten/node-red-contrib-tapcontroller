@@ -32,12 +32,12 @@ module.exports = function(RED) {
         var node = this
 
         var icAddress = parseInt(config.address)
-
+        /*
         var mcp = new MCP({
             address: icAddress, //all address pins pulled low
             device: config.device, // Model B
             debug: false,
-        })
+        })*/
 
         // icAddress = 0x60 // (default)
         var options = {
