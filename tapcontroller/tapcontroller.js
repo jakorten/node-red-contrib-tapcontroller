@@ -60,7 +60,7 @@ module.exports = function(RED) {
             var tapNum   = get_tapNum_from_topic(msg.topic)
             var tapState = msg.payload
 
-            console.log("Tap: " + tapNum + " - " + tapState)
+            //console.log("Tap: " + tapNum + " - " + tapState)
 
             if ((tapNum >= 0 && tapNum < maxTaps) && (tapState.toUpperCase() == "OPEN") || (tapState.toUpperCase() == "CLOSE") || (tapState.toUpperCase() == "OFF")) {
               pwm = new Pca9685Driver(options, function(err) {
@@ -81,7 +81,7 @@ module.exports = function(RED) {
                         }
                       });
                   }
-                  if (tapState.toUpperCase() == "OPEN") {
+                  if (tapState.toUpperCase() == "CLOSE") {
                       pwm.channelOn(tapNum * 2 + 1);
                       pwm.channelOff(tapNum * 2, function() {
                           if (err) {
@@ -164,13 +164,13 @@ module.exports = function(RED) {
         */
         function get_tapNum_from_topic(topic) {
 
-            console.log(topic)
+            //console.log(topic)
             var parts = topic.split('/')
 
-            console.log("Length: " + parts.length)
+            //console.log("Length: " + parts.length)
             var index = parts.length - 1
 
-            console.log("Last item: " + parts[index])
+            //console.log("Last item: " + parts[index])
             return parseInt(parts[index])
         }
         /*
